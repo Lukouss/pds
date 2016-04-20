@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MetodoUService WSDL service -->
+
+  <service name="MetodoU" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://capadeservicios"/>
+      <parameter name="wsdlServiceElement" value="MetodoUService"/>
+      <parameter name="schemaQualified" value="http://capadeservicios"/>
+      <parameter name="wsdlServicePort" value="MetodoU"/>
+      <parameter name="className" value="capadeservicios.MetodoUSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MetodoU"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="listar" qname="operNS:listar" xmlns:operNS="http://capadeservicios" returnQName="retNS:listarReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:listar" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="eliminarUsuario" qname="operNS:eliminarUsuario" xmlns:operNS="http://capadeservicios" returnQName="retNS:eliminarUsuarioReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://capadeservicios" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="agregarUsuario" qname="operNS:agregarUsuario" xmlns:operNS="http://capadeservicios" returnQName="retNS:agregarUsuarioReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nickname" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="editarUsuarioServicioWeb" qname="operNS:editarUsuarioServicioWeb" xmlns:operNS="http://capadeservicios" returnQName="retNS:editarUsuarioServicioWebReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://capadeservicios" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nickname" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="editarUsuarioServicioWeb listar agregarUsuario eliminarUsuario"/>
+
+  </service>
+</deployment>

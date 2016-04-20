@@ -1,0 +1,45 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from metodoService WSDL service -->
+
+  <service name="metodo" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://capadeservicios"/>
+      <parameter name="wsdlServiceElement" value="metodoService"/>
+      <parameter name="schemaQualified" value="http://capadeservicios"/>
+      <parameter name="wsdlServicePort" value="metodo"/>
+      <parameter name="className" value="capadeservicios.MetodoSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="metodo"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="listar" qname="operNS:listar" xmlns:operNS="http://capadeservicios" returnQName="retNS:listarReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:listar" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="eliminarContacto" qname="operNS:eliminarContacto" xmlns:operNS="http://capadeservicios" returnQName="retNS:eliminarContactoReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://capadeservicios" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="agregarContacto" qname="operNS:agregarContacto" xmlns:operNS="http://capadeservicios" returnQName="retNS:agregarContactoReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nombre" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:apellido" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mail" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:telefono" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="editarContactoServicioWeb" qname="operNS:editarContactoServicioWeb" xmlns:operNS="http://capadeservicios" returnQName="retNS:editarContactoServicioWebReturn" xmlns:retNS="http://capadeservicios" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://capadeservicios" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nombre" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:apellido" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mail" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:telefono" xmlns:pns="http://capadeservicios" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="eliminarContacto listar agregarContacto editarContactoServicioWeb"/>
+
+  </service>
+</deployment>
