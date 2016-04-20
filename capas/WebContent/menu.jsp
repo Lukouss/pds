@@ -22,7 +22,7 @@
      
     <script type="text/javascript" src="validador.js"></script>
   
-<title>Insert title here</title>
+<title>Menu</title>
 </head>
 <body>
  <nav class="navbar navbar-default">

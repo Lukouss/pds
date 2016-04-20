@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 import capadenegocio.Contacto;
 import capadenegocio.Usuario;
 
-public class metodo {
+public class Metodo {
 
 	public String listar(String listar) {
 		String salida = "";
@@ -66,15 +66,16 @@ public class metodo {
 	        return respuesta;
 	    }
 	   
-	   public String editarContactoServicioWeb(int uid,String nombre,String apellido,String mail,String telefono) {
+	   public String editarContactoServicioWeb(String nombre,String apellido,String mail,String telefono) {
 
 	        String respuesta = "";
 	    
 	        Contacto contacto = new Contacto();
-	        contacto.setUid(uid);
 	        contacto.setNombre(nombre);
 	        contacto.setApellido(apellido);
 	        contacto.setTelefono(telefono);
+	        contacto.setMail(mail);
+	        
 
 	        try {
 	         Contacto.Actualizar(contacto);
@@ -101,10 +102,11 @@ public class metodo {
 			return salida;
 
 		}
-		public String eliminarUsuario(int uid) {
+		public String eliminarUsuario(String nickname,String password) {
 	        String respuesta = "";
 	        Usuario usuario= new Usuario();
-	        usuario.setUid(uid);
+	        usuario.setnickname(nickname);
+	        usuario.setpassword(password);
 
 	        try {
 	            Usuario.eliminar(usuario);
@@ -131,12 +133,11 @@ public class metodo {
 	        }
 	        return respuesta;
 	    }
-		 public String editarUsuarioServicioWeb(int uid,String nickname,String password) {
+		 public String editarUsuarioServicioWeb(String nickname,String password) {
 
 		        String respuesta = "";
 		    
 		        Usuario usuario = new Usuario();
-		        usuario.setUid(uid);
 		        usuario.setnickname(nickname);
 		        usuario.setpassword(password);
 		        try {

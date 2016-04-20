@@ -9,7 +9,7 @@
 <title>Home</title>
 </head>
 <body>
-	<form action="login" method="post">
+	<form action="login" id="login" method="post" class="form-horizontal mitad" action="#">
 	
 	Usuario
    	<input type="text" name="user" value="usuario">

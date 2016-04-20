@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="menu.jsp"/>
-<title>Insert title here</title>
+<title>Error</title>
 </head>
 <body>
 	<p>Nombre de usuario o contraseña incorrectos.</p>

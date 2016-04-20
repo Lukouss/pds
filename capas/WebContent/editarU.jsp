@@ -9,16 +9,28 @@
 </head>
 <body>
 <h2>editar usuario</h2>
-	<form action="ModificarUsuario" method="Put">
+	<form action="ModificarUsuario" id ="ModificarUsuario" method="Put" class="form-horizontal mitad" action="#">
 
-		Nickname
-		<input type="text" name="nickname" required>
-		<br>
-		password
-		<input type="text" name="password" required>
-		<br>
-		
-		<input type="submit" value="enviar">
+	<div class="form-group">
+		<label class="col-lg-3 control-label">password</label>
+		<div class="col-lg-3">
+			<input type="password" class="form-control" name="password" required>
+			<br>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Nickname</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="nickname" required>
+			<br>
+		</div>
+	</div>	
+		<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
+			<button type="submit" class="btn btn-success left">Enviar</button>
+		</div>
+	</div>
 	</form>
 </body>
 </html>

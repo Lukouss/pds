@@ -65,7 +65,7 @@ public class Usuario {
 		}
 		return ingreso;
 	}
-	//metodo para listar a los usuarios
+	//Metodo para listar a los usuarios
 private static final int ROW_COUNT = 100;
 	
 	public List mostrar() throws PersistentException {
@@ -85,13 +85,13 @@ private static final int ROW_COUNT = 100;
 		return lUsuario;
 	}
 	
-	//metodo para  eliminar a los usuarios
+	//Metodo para  eliminar a los usuarios
 	public static String eliminar(Usuario usuario) throws PersistentException {
 		
 		String eliminar = "Usuario "+usuario.getnickname()+" eliminado";
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
-			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"'", null);
+			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' & Usuario.password = '"+usuario.getpassword()+"'", null);
 			orm.Usuario3DAO.delete(oRMusuario);
 			t.commit();
 			System.out.println("Usuario "+ eliminar+ " eliminado");
@@ -101,14 +101,14 @@ private static final int ROW_COUNT = 100;
 		}
 		return eliminar;
 	}
-//metodo para actualizar a los usuarios
+//Metodo para actualizar a los usuarios
 	public static String Actualizar(Usuario usuario) throws PersistentException {
 		String cambio = "Usuario "+usuario.getnickname()+" cambiado";
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
-			orm.Usuario3 oRMusuario = orm.Usuario3DAO.getUsuario3ByORMID(usuario.getUid());
+			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' & Usuario.password = '"+usuario.getpassword()+"'", null);
 		
-			oRMusuario.setUid(usuario.getUid());
+			
 			oRMusuario.setNickname(usuario.getnickname());
 			oRMusuario.setPassword(usuario.getpassword());		
 			orm.Usuario3DAO.save(oRMusuario);

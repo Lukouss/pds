@@ -176,4 +176,14 @@
     <servlet-name>BorrarU</servlet-name>
     <url-pattern>/BorrarU</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Borrar</display-name>
+    <servlet-name>Borrar</servlet-name>
+    <servlet-class>Servlet.Borrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Borrar</servlet-name>
+    <url-pattern>/Borrar</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,27 +2,25 @@ package Servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.orm.PersistentException;
-
-import capadenegocio.Usuario;
 import capadeservicios.Metodo;
 
 /**
- * Servlet implementation class ModificarUsuario
+ * Servlet implementation class Borrar
  */
-public class ModificarUsuario extends HttpServlet {
+public class Borrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ModificarUsuario() {
+	public Borrar() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,7 +31,15 @@ public class ModificarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		session.getAttribute("usuario");
+
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+
+		Metodo contacto = new Metodo();
+		contacto.eliminarContacto(nombre, apellido); // TODO Auto-generated
+														// method stub
 	}
 
 	/**
@@ -50,48 +56,47 @@ public class ModificarUsuario extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.getAttribute("usuario");
-
-		String nickname = request.getParameter("nickname");
-		String password = request.getParameter("password");
-
-		ModificarUsuario mu = new ModificarUsuario();
-
-		mu.Letras(nickname);
-		mu.Letras(password);
-		if (nickname.trim().equals("") || password.trim().equals("")) {
-			System.out.println("variable vacia");
-
-		} else {
-			if (nickname.length() > 100 && password.length() > 100) {
-				System.out
-						.println("Los campos ingresados sobrepasan el límite de caracteres permitidos...");
-
-			} else {
-
-				if (nickname.equals(null) || password.equals(null)) {
-
-					System.out.println("variable vacia");
-
-				} else {
-
-					Metodo mou = new Metodo();
-
-					mou.editarUsuarioServicioWeb(nickname, password);
-				}
-			}
-		}
-
 		// TODO Auto-generated method stub
-	}// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		session.getAttribute("usuario");
+		Borrar B = new Borrar();
+
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+
+		B.Letras(nombre);
+		B.Letras(apellido);
+
+		if (nombre.trim().equals("") || apellido.trim().equals("")) {
+			System.out.println("variable vacia");
+
+		} else {
+			if (nombre.length() > 100 && apellido.length() > 100) {
+				System.out.println("Los campos ingresados sobrepasan el límite de caracteres permitidos...");
+
+			} else {
+
+				if (nombre.equals(null) || apellido.equals(null)) {
+
+					System.out.println("variable vacia");
+
+				} else {
+					Metodo contacto = new Metodo();
+					contacto.eliminarContacto(nombre, apellido); // TODO
+																	// Auto-generated
+																	// method
+					RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+					rd.forward(request, response);												// stub
+				}
+			}
+		}
 	}
 
 	public boolean Letras(String cad) {

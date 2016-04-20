@@ -5,11 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="menu.jsp"/>
-<title>Insert title here</title>
+<title>Mostar</title>
 </head>
 <body>
 <h3>Lista de los contactos</h3>
-	<form action="Servletmostrar" method="get">		
+	<form action="Servletmostrar" id="Servletmostrar" method="get" class="form-horizontal mitad" action="#">		
+		
+		
 		<input type="submit" value="listar">
 	</form>
 </body>

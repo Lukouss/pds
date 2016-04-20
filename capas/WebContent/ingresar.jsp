@@ -8,7 +8,7 @@
 <jsp:include page="menu.jsp"/>
      
     <script type="text/javascript" src="validador.js"></script>
-<title>Insert title here</title>
+<title>Ingresar</title>
 </head>
 <body>
 <h2>ingresar Contacto</h2>

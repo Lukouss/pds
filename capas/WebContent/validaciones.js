@@ -133,39 +133,7 @@
                      }
                  }
              },
-             pais: {
-                 validators: {
-                     notEmpty: {
-                         message: 'El pais es requerido'
-                     },
-                     stringLength: {
-                         max: 20,
-                         message: 'El pais debe contener maximo 20 caracteres'
-                     }
-                 }
-             },
-             region: {
-                 validators: {
-                     notEmpty: {
-                         message: 'La region es requerida'
-                     },
-                     stringLength: {
-                         max: 20,
-                         message: 'La region debe contener maximo 20 caracteres'
-                     }
-                 }
-             },
-             ciudad: {
-                 validators: {
-                     notEmpty: {
-                         message: 'La ciudad es requerido'
-                     },
-                     stringLength: {
-                         max: 20,
-                         message: 'La ciudad debe contener maximo 20 caracteres'
-                     }
-                 }
-             },
+             
          }
     });
 
@@ -176,18 +144,25 @@
              validating: 'glyphicon glyphicon-refresh'
          },
          fields: {
-             id: {
+        	 nombre: {
                  validators: {
                      notEmpty: {
-                         message: 'El id es requerido'
+                         message: 'El nombre es requerido'
                      },
                      stringLength: {
-                         max: 20,
-                         message: 'El id debe contener maximo 10 caracteres'
+                         max: 100,
+                         message: 'El nombre debe contener maximo 100 caracteres'
+                     }
+                 }
+             },
+             apellido: {
+                 validators: {
+                     notEmpty: {
+                         message: 'El apellido es requerido'
                      },
-                     regexp: {
-                         regexp: /^[0-9]+$/,
-                         message: 'El id solo puede contener números'
+                     stringLength: {
+                         max: 100,
+                         message: 'El apellido debe contener maximo 100 caracteres'
                      }
                  }
              }

@@ -5,21 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="menu.jsp"/>
-<title>Insert title here</title>
+<title>Eliminar</title>
 </head>
 <body>
 <h2>eliminar contacto</h2>
-	<form action="Servletborrar" method="DELETE">
+	<form action="Borrar" id="Borrar" method="DELETE" class="form-horizontal mitad" action="#">
 
-		Nombre
-		<input type="text" name="nombre" required>
-		<br>
+		<div class="form-group">
+		<label class="col-lg-3 control-label">Nombre</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="nombre" required>
+			<br>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Apellido</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="apellido" required>
+			<br>
+		</div>
+	</div>
 		
-		apellido
-		<input type="text" name="apellido" required>
-		<br>
-		
-		<input type="submit" value="enviar" >
+		<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
+			<button type="submit" class="btn btn-success left">Enviar</button>
+		</div>
+	</div>
 		</form>
 </body>
 </html>

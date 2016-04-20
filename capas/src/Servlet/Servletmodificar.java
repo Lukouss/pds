@@ -9,11 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import capadenegocio.Contacto;
+import capadeservicios.Metodo;
 
 /**
  * Servlet implementation class Servletmodificar
@@ -35,6 +37,10 @@ public class Servletmodificar extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		 session.getAttribute("usuario");
+		
+		
 		PrintWriter out= response.getWriter();
 		PersistentTransaction t = null;
 		String nombre= "";
@@ -52,30 +58,31 @@ public class Servletmodificar extends HttpServlet {
 
 			actualizar.validateEmail(mail);
 			actualizar.esEntero(telefono);
+			actualizar.Letras(nombre);
+			actualizar.Letras(nombre);
 			
 			if(nombre.trim().equals("")|| apellido.trim().equals("")||mail.trim().equals("")||
 					telefono.trim().equals("")){
 				System.out.println("variable vacia");
 				
 			}else{
-				if (nombre.length() <=100 && apellido.length() <=100 && mail.length() <=50 && 
-						telefono.length() <= 20 ){
-					out.println(" Hola tu nombre es "+ nombre+ ". Saludos!!!");
-					
-					Contacto ingresar = new Contacto();
-					ingresar.setNombre(nombre);
-					ingresar.setApellido(apellido);
-					ingresar.setMail(mail);
-					ingresar.setTelefono(telefono);
-
-					try {
-						Contacto.Actualizar(ingresar);
-					} catch (PersistentException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				} else {
+				if (nombre.length() >100 && apellido.length() >100 && mail.length() >50 && 
+						telefono.length() > 20 ){
 					System.out.println("Los campos ingresados sobrepasan el límite de caracteres permitidos...");
+				} else {
+					
+					if(nombre.equals(null)|| apellido.equals(null)||mail.equals(null)||
+							telefono.equals(null)){System.out.println("variable vacia");
+					
+					
+					}else{
+						out.println(" Hola tu nombre es "+ nombre+ ". Saludos!!!");
+					
+					Metodo ingresar = new Metodo();
+
+					ingresar.editarContactoServicioWeb(nombre,apellido,mail,telefono);
+						
+					}
 				}
 				
 			}
@@ -108,5 +115,13 @@ public class Servletmodificar extends HttpServlet {
 		 }
 		 return true;
 	 }
+	
+	public boolean Letras(String cad) {
+		for (int i = 0; i < cad.length(); i++)
+			if (Character.isLetter(cad.charAt(i))) {
+				return true;
+			}
+		return false;
+	}
 
 }

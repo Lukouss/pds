@@ -52,9 +52,10 @@ public class login extends HttpServlet {
 	            //si coincide usuario y password y además no hay sesión iniciada
 	            sesion.setAttribute("usuario", usu);
 	            //redirijo a página con información de login exitoso
-	            response.sendRedirect("loginExito.jsp");
+	            response.sendRedirect("menu.jsp");
 	        }else{
-	        	response.sendRedirect("LoginFallido.jsp");//lógica para login inválido
+	        	response.sendRedirect("login.jsp");
+	        	//lógica para login inválido
 	        }
 	}
 

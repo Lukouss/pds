@@ -8,25 +8,48 @@
      
     <script type="text/javascript" src="validador.js"></script>
     
-<title>Insert title here</title>
+<title>Editar</title>
 </head>
 <body>
 <h2>editar contacto</h2>
-	<form action="Servletmodificar" id = "Servletmodificar" method="put">
+	<form action="Servletmodificar" id ="Servletmodificar" method="put" class="form-horizontal mitad" action="#">
 
-		Nombre
-		<input type="text" name="nombre" required>
-		<br>
-		Apellido
-		<input type="text" name="apellido" required>>
-		<br>
-		Mail
-		<input type="text" name="mail" required>>
-		<br>
-		Telefono
-		<input type="text" name="telefono" required>>
-		<br>		
-		<input type="submit" value="enviar">
+		<div class="form-group">
+		<label class="col-lg-3 control-label">Nombre</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="nombre" required>
+			<br>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Apellido</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="apellido" required>
+			<br>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Mail</label>
+		<div class="col-lg-3">
+			<input type="email" class="form-control" name="mail" required>
+			<br>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Telefono</label>
+		<div class="col-lg-3">
+			<input type="number" class="form-control" name="telefono" required>
+			<br>
+		</div>
+	</div>	
+		<div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
+			<button type="submit" class="btn btn-success left">Enviar</button>
+		</div>
+	</div>
 	</form>
 
 </body>
