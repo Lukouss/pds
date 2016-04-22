@@ -5,19 +5,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="menu.jsp"/>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"></link>
+   	 <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
+    
+    <!--- <script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+     
+    <script type="text/javascript" src="./js/validaciones.js"></script>
 <title>Home</title>
 </head>
 <body>
-	<form action="login" id="login" method="post" class="form-horizontal mitad" action="#">
+	<form action="Servletlogin" id="Servletlogin" method="post" class="form-horizontal mitad" >
 	
-	Usuario
-   	<input type="text" name="user" value="usuario">
+	
+		<div class="form-group">
+		<label class="col-lg-3 control-label">Nickname</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="nickname" required>
+			<br>
+		</div>
+	</div>
+   	
+		<div class="form-group">
+		<label class="col-lg-3 control-label">Password</label>
+		<div class="col-lg-3">
+			<input type="password" class="form-control" name="password" required>
+			<br>
+		</div>
+	</div>
    	<br>
-   	Contraseña
-  	 <input type="password" name="password" value="contraseña">
-   	<br>
-  	 <input type="submit" value="Enviar">
+  	 <div class="form-group">
+		<div class="col-lg-9 col-lg-offset-3">
+			<button type="submit" class="btn btn-success left">login</button>
+		</div>
+	</div>
   	<br>
 	</form>
 

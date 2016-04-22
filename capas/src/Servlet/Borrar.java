@@ -33,12 +33,8 @@ public class Borrar extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.getAttribute("usuario");
-
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-
-		Metodo contacto = new Metodo();
-		contacto.eliminarContacto(nombre, apellido); // TODO Auto-generated
+		this.doDelete(request, response);
+// TODO Auto-generated
 														// method stub
 	}
 
@@ -68,35 +64,19 @@ public class Borrar extends HttpServlet {
 		session.getAttribute("usuario");
 		Borrar B = new Borrar();
 
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
+		String rut = request.getParameter("rut");
 
-		B.Letras(nombre);
-		B.Letras(apellido);
 
-		if (nombre.trim().equals("") || apellido.trim().equals("")) {
-			System.out.println("variable vacia");
 
-		} else {
-			if (nombre.length() > 100 && apellido.length() > 100) {
-				System.out.println("Los campos ingresados sobrepasan el límite de caracteres permitidos...");
-
-			} else {
-
-				if (nombre.equals(null) || apellido.equals(null)) {
-
-					System.out.println("variable vacia");
-
-				} else {
+		
 					Metodo contacto = new Metodo();
-					contacto.eliminarContacto(nombre, apellido); // TODO
+					contacto.eliminarContacto(rut); // TODO
 																	// Auto-generated
 																	// method
 					RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
 					rd.forward(request, response);												// stub
-				}
-			}
-		}
+				
+			
 	}
 
 	public boolean Letras(String cad) {

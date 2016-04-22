@@ -5,27 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="menu.jsp"/>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
 <title>Ingresar</title>
 </head>
 <body>
 <h2>ingresar Usuario</h2>
-	<form action="IngresarU" id="IngresarU" method="post" class="form-horizontal mitad" action="#">
+	<form action="IngresarU" id="IngresarU" method="post" class="form-horizontal mitad" >
 	
-	<div class="form-group">
-		<label class="col-lg-3 control-label">password</label>
-		<div class="col-lg-3">
-			<input type="password" class="form-control" name="password" required>
-			<br>
-		</div>
-	</div>
+	
 	
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Nickname</label>
 		<div class="col-lg-3">
-			<input type="text" class="form-control" name="nickname" required>
+			<input type="text" class="form-control" placeholder="Ingrese un nickname" name="nickname" required>
 			<br>
 		</div>
 	</div>	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">password</label>
+		<div class="col-lg-3">
+			<input type="password" class="form-control" placeholder="Ingrese un password" name="password" required>
+			<br>
+		</div>
+	</div>
+		
 		<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
 			<button type="submit" class="btn btn-success left">Enviar</button>

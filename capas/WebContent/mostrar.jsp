@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>Lista de los contactos</h3>
-	<form action="Servletmostrar" id="Servletmostrar" method="get" class="form-horizontal mitad" action="#">		
+	<form action="Servletmostrar" id="Servletmostrar" method="get" class="form-horizontal mitad" >		
 		
 		
 		<input type="submit" value="listar">

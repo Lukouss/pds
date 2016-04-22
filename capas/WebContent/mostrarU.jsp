@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>Lista de los Usuarios</h3>
-	<form action="MostarU" id = "MostarU" method="get" class="form-horizontal mitad" action="#">		
+	<form action="MostarU" id = "MostarU" method="get" class="form-horizontal mitad" >		
 		<input type="submit" value="listar">
 	</form>
 </body>

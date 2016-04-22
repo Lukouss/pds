@@ -6,18 +6,25 @@
 
 <jsp:include page="menu.jsp"/>
      
-    <script type="text/javascript" src="validador.js"></script>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
     
 <title>Editar</title>
 </head>
 <body>
 <h2>editar contacto</h2>
-	<form action="Servletmodificar" id ="Servletmodificar" method="put" class="form-horizontal mitad" action="#">
+	<form action="Update" id ="Update" method="put" class="form-horizontal mitad" >
 
+<div class="form-group">
+		<label class="col-lg-3 control-label">Uid</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="uid" value="1" disabled>
+			<br>
+		</div>
+	</div>
 		<div class="form-group">
 		<label class="col-lg-3 control-label">Nombre</label>
 		<div class="col-lg-3">
-			<input type="text" class="form-control" name="nombre" required>
+			<input type="text" class="form-control" name="nombre" placeholder="Ingrese un nombre" required>
 			<br>
 		</div>
 	</div>
@@ -41,10 +48,33 @@
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Telefono</label>
 		<div class="col-lg-3">
-			<input type="number" class="form-control" name="telefono" required>
+			<input type="text" class="form-control" name="telefono" required>
+			<br>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Cargo</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="cargo" required>
 			<br>
 		</div>
 	</div>	
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Dirrecion</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="Dirrecion" required>
+			<br>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Rut</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="rut" required>
+			<br>
+		</div>
+	</div>
+			
+			
 		<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
 			<button type="submit" class="btn btn-success left">Enviar</button>

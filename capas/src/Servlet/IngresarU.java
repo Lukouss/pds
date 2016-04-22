@@ -48,7 +48,10 @@ public class IngresarU extends HttpServlet {
 
 		String nickname = request.getParameter("nickname");
 		String password = request.getParameter("password");
-
+		
+		
+		System.out.print(nickname + "ingresaru " );
+		System.out.print(password + "ingresaru ");
 		BorrarU bu = new BorrarU();
 
 		bu.Letras(nickname);
@@ -68,9 +71,12 @@ public class IngresarU extends HttpServlet {
 					System.out.println("variable vacia");
 
 				} else {
-
+					System.out.print(nickname + "ingresaru ");
+					System.out.print(password + "ingresaru ");
 					Metodo busu = new Metodo();
-					busu.eliminarUsuario(nickname, password);
+					busu.agregarUsuario(nickname, password);
+					System.out.print(nickname + "ingresaru ");
+					System.out.print(password + "ingresaru ");
 
 					RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
 					rd.forward(request, response);// TODO Auto-generated method

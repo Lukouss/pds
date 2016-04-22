@@ -9,11 +9,11 @@ public class ListEjercicioData {
 	private static final int ROW_COUNT = 100;
 	
 	public void listTestData() throws PersistentException {
-		System.out.println("Listing Entidad...");
-		orm.Entidad[] oRMEntidads = orm.EntidadDAO.listEntidadByQuery(null, null);
-		int length = Math.min(oRMEntidads.length, ROW_COUNT);
+		System.out.println("Listing Contacto...");
+		orm.Contacto[] oRMContactos = orm.ContactoDAO.listContactoByQuery(null, null);
+		int length = Math.min(oRMContactos.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(oRMEntidads[i]);
+			System.out.println(oRMContactos[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -25,20 +25,28 @@ public class ListEjercicioData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Empresa...");
+		orm.Empresa[] oRMEmpresas = orm.EmpresaDAO.listEmpresaByQuery(null, null);
+		length = Math.min(oRMEmpresas.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(oRMEmpresas[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 	}
 	
 	public void listByCriteria() throws PersistentException {
-		System.out.println("Listing Entidad by Criteria...");
-		orm.EntidadCriteria oRMEntidadCriteria = new orm.EntidadCriteria();
+		System.out.println("Listing Contacto by Criteria...");
+		orm.ContactoCriteria oRMContactoCriteria = new orm.ContactoCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//oRMEntidadCriteria.uid.eq();
-		oRMEntidadCriteria.setMaxResults(ROW_COUNT);
-		orm.Entidad[] oRMEntidads = oRMEntidadCriteria.listEntidad();
-		int length =oRMEntidads== null ? 0 : Math.min(oRMEntidads.length, ROW_COUNT); 
+		//oRMContactoCriteria.uid.eq();
+		oRMContactoCriteria.setMaxResults(ROW_COUNT);
+		orm.Contacto[] oRMContactos = oRMContactoCriteria.listContacto();
+		int length =oRMContactos== null ? 0 : Math.min(oRMContactos.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(oRMEntidads[i]);
+			 System.out.println(oRMContactos[i]);
 		}
-		System.out.println(length + " Entidad record(s) retrieved."); 
+		System.out.println(length + " Contacto record(s) retrieved."); 
 		
 		System.out.println("Listing Usuario3 by Criteria...");
 		orm.Usuario3Criteria oRMUsuario3Criteria = new orm.Usuario3Criteria();
@@ -51,6 +59,18 @@ public class ListEjercicioData {
 			 System.out.println(oRMUsuario3s[i]);
 		}
 		System.out.println(length + " Usuario3 record(s) retrieved."); 
+		
+		System.out.println("Listing Empresa by Criteria...");
+		orm.EmpresaCriteria oRMEmpresaCriteria = new orm.EmpresaCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//oRMEmpresaCriteria.uid.eq();
+		oRMEmpresaCriteria.setMaxResults(ROW_COUNT);
+		orm.Empresa[] oRMEmpresas = oRMEmpresaCriteria.listEmpresa();
+		length =oRMEmpresas== null ? 0 : Math.min(oRMEmpresas.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(oRMEmpresas[i]);
+		}
+		System.out.println(length + " Empresa record(s) retrieved."); 
 		
 	}
 	

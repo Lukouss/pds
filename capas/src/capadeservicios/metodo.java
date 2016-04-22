@@ -29,11 +29,10 @@ public class Metodo {
 	}
 
 
-	  public String eliminarContacto(String nombre,String apellido) {
+	  public String eliminarContacto(String rut) {
 	        String respuesta = "";
 	        Contacto contacto = new Contacto();
-	        contacto.setNombre(nombre);
-	        contacto.setApellido(apellido);
+	        contacto.setRut(rut);
 
 	        try {
 	            Contacto.eliminar(contacto);
@@ -46,7 +45,7 @@ public class Metodo {
 	        return respuesta;
 	    }
 	  
-	   public String agregarContacto(String nombre,String apellido,String mail,String telefono){
+	   public String agregarContacto(String nombre,String apellido,String mail,String telefono,String cargo,String dirrecion, String rut){
 	        String respuesta = "no se pudo almacenar el contacto";
 	        
 	        Contacto contacto = new Contacto();
@@ -54,6 +53,9 @@ public class Metodo {
 	        contacto.setApellido(apellido);
 	        contacto.setTelefono(telefono);
 	        contacto.setMail(mail);
+	        contacto.setCargo(cargo);
+	        contacto.setDirrecion(dirrecion);
+	        contacto.setRut(rut);
 
 
 	        try {
@@ -66,15 +68,19 @@ public class Metodo {
 	        return respuesta;
 	    }
 	   
-	   public String editarContactoServicioWeb(String nombre,String apellido,String mail,String telefono) {
+	   public String editarContactoServicioWeb(int uid,String nombre,String apellido,String mail,String telefono,String cargo,String dirrecion, String rut) {
 
 	        String respuesta = "";
 	    
 	        Contacto contacto = new Contacto();
+	        contacto.setUid(uid);
 	        contacto.setNombre(nombre);
 	        contacto.setApellido(apellido);
 	        contacto.setTelefono(telefono);
 	        contacto.setMail(mail);
+	        contacto.setCargo(cargo);
+	        contacto.setDirrecion(dirrecion);
+	        contacto.setRut(rut);
 	        
 
 	        try {
@@ -124,6 +130,9 @@ public class Metodo {
 	        Usuario usuario = new Usuario();
 	        usuario.setnickname(nickname);
 	        usuario.setpassword(password);
+	        
+	        System.out.print(nickname);
+			System.out.print(password);
 	                try {
 	            Usuario.ingresar(usuario);
 	           

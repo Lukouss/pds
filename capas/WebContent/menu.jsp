@@ -16,11 +16,11 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"></link>
    	 <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
     
-    <script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+    <!--- <script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>-->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
      
-    <script type="text/javascript" src="validador.js"></script>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
   
 <title>Menu</title>
 </head>
@@ -42,9 +42,19 @@
 							  <li role="presentation"><a href="EliminarU.jsp">eliminar Usuario</a></li>
 							  <li role="presentation"><a href="ingresar.jsp">ingresar</a></li>
 							  <li role="presentation"><a href="ingresarU.jsp">ingresar Usuario</a></li>
-
 							  <li role="presentation"><a href="mostrar.jsp">mostrar</a></li>
 							  <li role="presentation"><a href="mostrarU.jsp">mostrar U</a></li>
+							  
+							  <li role="presentation"><form action="Servletlogin" id="Servletlogin" method="get" class="form-horizontal mitad" >
+							  <div class="form-group">
+								<div class="col-lg-9 col-lg-offset-3">
+									<button type="submit" class="btn btn-success left">Logout</button>
+								</div>
+							</div>
+							  
+							  </form>
+							  </li>
+							  
 
 						</ul>
                 </div>

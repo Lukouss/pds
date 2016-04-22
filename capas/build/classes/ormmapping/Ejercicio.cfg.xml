@@ -11,7 +11,7 @@ License Type: Academic
    	<!-- properties -->
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5432/prueba2</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/DBCRM</property>
 		<property name="connection.username">postgres</property>
 		<property name="connection.password">12345</property>
 		<property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
@@ -23,7 +23,8 @@ License Type: Academic
 		<property name="show_sql">false</property>
 		<property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
 		<!-- mapping files -->
-		<mapping resource="ormmapping/orm/Entidad.hbm.xml" />
+		<mapping resource="ormmapping/orm/Contacto.hbm.xml" />
+		<mapping resource="ormmapping/orm/Empresa.hbm.xml" />
 		<mapping resource="ormmapping/orm/Usuario3.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

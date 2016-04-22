@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Empresa" table="Empresa" lazy="false">
+		<id name="uid" column="uid" type="integer" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">seq_Empresa</param>
+			</generator>
+		</id>
+		<property name="dirrecion" column="dirrecion" type="string" length="30" not-null="true" lazy="false">
+			<meta attribute="field-description">
+				dirrecion
+			</meta>
+		</property>
+		<property name="nombre" column="nombre" type="string" length="25" not-null="true" lazy="false">
+			<meta attribute="field-description">
+				nombre
+			</meta>
+		</property>
+		<property name="rut" column="rut" unique="true" type="string" length="20" not-null="true" lazy="false">
+			<meta attribute="field-description">
+				rut
+			</meta>
+		</property>
+		<property name="rubro" column="rubro" type="string" length="25" not-null="true" lazy="false">
+			<meta attribute="field-description">
+				rubro
+			</meta>
+		</property>
+		<property name="rlegal" column="rlegal" type="string" length="30" not-null="true" lazy="false"/>
+		<set name="ORM_Entidad" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="Empresauid" not-null="true"/>
+			<one-to-many class="orm.Contacto"/>
+		</set>
+	</class>
+</hibernate-mapping>

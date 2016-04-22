@@ -59,6 +59,9 @@ public class Ingresar1 extends HttpServlet {
 		String apellido = "";
 		String mail = "";
 		String telefono = "";
+		String cargo = "";
+		String dirrecion = "";
+		String rut = "";
 
 		Ingresar1 ingreso = new Ingresar1();
 
@@ -67,29 +70,40 @@ public class Ingresar1 extends HttpServlet {
 			apellido = request.getParameter("apellido");
 			mail = request.getParameter("mail");
 			telefono = request.getParameter("telefono");
+			rut = request.getParameter("rut");
+			cargo = request.getParameter("cargo");
+			dirrecion = request.getParameter("dirrecion");
 
 			ingreso.validateEmail(mail);
 			ingreso.esEntero(telefono);
 			ingreso.Letras(nombre);
 			ingreso.Letras(apellido);
+			ingreso.Letras(cargo);
+			ingreso.Letras(dirrecion);
+			
+			
+			
 
 			if (nombre.trim().equals("") || apellido.trim().equals("")
-					|| mail.trim().equals("") || telefono.trim().equals("")) {
+					|| mail.trim().equals("") || telefono.trim().equals("") || cargo.trim().equals("") || dirrecion.trim().equals("")) {
 				System.out.println("variable vacia");
-
+				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+				rd.forward(request, response);
 			} else {
-				if (nombre.length() > 100 && apellido.length() > 100
-						&& mail.length() > 50 && telefono.length() > 20) {
+				if (nombre.length() > 25 && apellido.length() > 25
+						&& mail.length() > 30 && telefono.length() > 25 && cargo.length() > 25 && dirrecion.length() > 25) {
 					System.out
 							.println("Los campos ingresados sobrepasan el límite de caracteres permitidos...");
-
+					RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+					rd.forward(request, response);
 				} else {
 
 					if (nombre.equals(null) || apellido.equals(null)
-							|| mail.equals(null) || telefono.equals(null)) {
+							|| mail.equals(null) || telefono.equals(null) || cargo.equals(null) || dirrecion.equals(null)) {
 
 						System.out.println("variable vacia");
-
+						RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+						rd.forward(request, response);
 					} else {
 						out.println(" Hola tu nombre es " + nombre
 								+ ". Saludos!!!");
@@ -97,7 +111,7 @@ public class Ingresar1 extends HttpServlet {
 						Metodo ingresar = new Metodo();
 
 						ingresar.agregarContacto(nombre, apellido, mail,
-								telefono);
+								telefono,cargo,dirrecion,rut);
 						RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
 						rd.forward(request, response);
 					}

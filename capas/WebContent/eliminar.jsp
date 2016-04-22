@@ -5,27 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="menu.jsp"/>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
 <title>Eliminar</title>
 </head>
 <body>
 <h2>eliminar contacto</h2>
-	<form action="Borrar" id="Borrar" method="DELETE" class="form-horizontal mitad" action="#">
+	<form action="Borrar" id="Borrar" method="DELETE" class="form-horizontal mitad" >
 
 		<div class="form-group">
-		<label class="col-lg-3 control-label">Nombre</label>
+		<label class="col-lg-3 control-label">Rut</label>
 		<div class="col-lg-3">
-			<input type="text" class="form-control" name="nombre" required>
+			<input type="text" class="form-control" name="rut" required>
 			<br>
 		</div>
 	</div>
 	
-	<div class="form-group">
-		<label class="col-lg-3 control-label">Apellido</label>
-		<div class="col-lg-3">
-			<input type="text" class="form-control" name="apellido" required>
-			<br>
-		</div>
-	</div>
 		
 		<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">

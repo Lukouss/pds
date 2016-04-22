@@ -7,12 +7,12 @@
 
 <jsp:include page="menu.jsp"/>
      
-    <script type="text/javascript" src="validador.js"></script>
+    <script type="text/javascript" src="./js/validaciones.js"></script>
 <title>Ingresar</title>
 </head>
 <body>
 <h2>ingresar Contacto</h2>
-	<form action="Ingresar1" id="Ingresar1" method="post" class="form-horizontal mitad" action="#">
+	<form action="Ingresar1" id="Ingresar1" method="post" class="form-horizontal mitad" >
 
 		<div class="form-group">
 		<label class="col-lg-3 control-label">Nombre</label>
@@ -41,7 +41,28 @@
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Telefono</label>
 		<div class="col-lg-3">
-			<input type="number" class="form-control" name="telefono" required>
+			<input type="text" class="form-control" name="telefono" required>
+			<br>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Rut</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="rut" required>
+			<br>
+		</div>
+		</div>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Cargo</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="cargo" required>
+			<br>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-3 control-label">Dirrecion</label>
+		<div class="col-lg-3">
+			<input type="text" class="form-control" name="dirrecion" required>
 			<br>
 		</div>
 	</div>	

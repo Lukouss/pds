@@ -9,12 +9,15 @@ public class CreateEjercicioData {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
-			orm.Entidad oRMEntidad = orm.EntidadDAO.createEntidad();
-			// Initialize the properties of the persistent object here
-			orm.EntidadDAO.save(oRMEntidad);
+			orm.Contacto oRMContacto = orm.ContactoDAO.createContacto();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : dirrecion, cargo, rut, empresau, telefono, mail, apellido, nombre
+			orm.ContactoDAO.save(oRMContacto);
 			orm.Usuario3 oRMUsuario3 = orm.Usuario3DAO.createUsuario3();
-			// Initialize the properties of the persistent object here
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : password, nickname
 			orm.Usuario3DAO.save(oRMUsuario3);
+			orm.Empresa oRMEmpresa = orm.EmpresaDAO.createEmpresa();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : entidad, rlegal, rubro, rut, nombre, dirrecion
+			orm.EmpresaDAO.save(oRMEmpresa);
 			t.commit();
 		}
 		catch (Exception e) {

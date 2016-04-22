@@ -50,12 +50,15 @@ public class Usuario {
 	 */
 	public static  String ingresar(Usuario persona) throws PersistentException {
 		String ingreso = "Usuario "+persona.nickname+" ingresado";
+		
+		System.out.print(persona.getnickname() + "usuario ");
+		System.out.print(persona.getpassword() + "usuario ");
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
 			orm.Usuario3 oRMusuario = orm.Usuario3DAO.createUsuario3();
 			oRMusuario.setUid(persona.getUid());
 			oRMusuario.setNickname(persona.getnickname());
-			oRMusuario.setNickname(persona.getpassword());
+			oRMusuario.setPassword(persona.getpassword());
 			// Initialize the properties of the persistent object here
 			orm.Usuario3DAO.save(oRMusuario);
 			t.commit();
@@ -91,7 +94,7 @@ private static final int ROW_COUNT = 100;
 		String eliminar = "Usuario "+usuario.getnickname()+" eliminado";
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
-			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' & Usuario.password = '"+usuario.getpassword()+"'", null);
+			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' and Usuario.password = '"+usuario.getpassword()+"'", null);
 			orm.Usuario3DAO.delete(oRMusuario);
 			t.commit();
 			System.out.println("Usuario "+ eliminar+ " eliminado");
@@ -106,7 +109,7 @@ private static final int ROW_COUNT = 100;
 		String cambio = "Usuario "+usuario.getnickname()+" cambiado";
 		PersistentTransaction t = orm.EjercicioPersistentManager.instance().getSession().beginTransaction();
 		try {
-			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' & Usuario.password = '"+usuario.getpassword()+"'", null);
+			orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("Usuario.nickname = '"+usuario.getnickname()+"' and Usuario.password = '"+usuario.getpassword()+"'", null);
 		
 			
 			oRMusuario.setNickname(usuario.getnickname());
@@ -122,7 +125,7 @@ private static final int ROW_COUNT = 100;
 	
 	public List buscar() throws PersistentException {
 		Usuario usuario = new Usuario();
-		List<orm.Usuario3> listaURM = orm.Usuario3DAO.queryUsuario3("Usuario.nickname = '"+usuario.getnickname()+"' & Usuario.password = '"+usuario.getpassword()+"'", null);
+		List<orm.Usuario3> listaURM = orm.Usuario3DAO.queryUsuario3("Usuario.nickname = '"+usuario.getnickname()+"' and Usuario.password = '"+usuario.getpassword()+"'", null);
 		List<Usuario> lUsuario = new ArrayList<Usuario>();
 		
 		for( orm.Usuario3 usuarioUrm: listaURM ) {			
@@ -136,6 +139,19 @@ private static final int ROW_COUNT = 100;
 			}
 		
 		return lUsuario;
+	}
+
+	public static Usuario busquedaUsuario(Usuario usuario) throws PersistentException {
+		Usuario usur = new Usuario();
+
+		orm.Usuario3 oRMusuario = orm.Usuario3DAO.loadUsuario3ByQuery("nickname = '"+usuario.getnickname()+"' and password = '"+usuario.getpassword()+"'", null);
+		usur.setnickname(oRMusuario.getNickname());
+		usur.setpassword(oRMusuario.getPassword());		
+		
+		
+		
+		// TODO Auto-generated method stub
+		return usur;
 	}
 	
 }
